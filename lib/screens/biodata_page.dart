@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class BiodataPage extends StatefulWidget {
-  const BiodataPage({Key? key}) : super(key: key);
+  const BiodataPage({super.key});
 
   @override
   State<BiodataPage> createState() => _BiodataPageState();

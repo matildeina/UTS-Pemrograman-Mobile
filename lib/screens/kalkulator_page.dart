@@ -1,6 +1,7 @@
 // screens/kalkulator_page.dart
 
 import 'package:flutter/material.dart';
+import 'dart:math' as math; // Import library math untuk sqrt
 
 class KalkulatorPage extends StatefulWidget {
   const KalkulatorPage({super.key});
@@ -10,36 +11,153 @@ class KalkulatorPage extends StatefulWidget {
 }
 
 class _KalkulatorPageState extends State<KalkulatorPage> {
-  String _output = "0";
+  // === VARIABEL STATE UNTUK LOGIKA KALKULATOR ===
+
+  String _output = "0"; // Teks yang tampil di display
+  double _num1 = 0; // Angka pertama yang disimpan
+  String _operator = ""; // Operator yang sedang aktif (+, -, ×, ÷)
+  bool _isWaitingForNum2 =
+      false; // Flag untuk menandai apakah kita sedang menunggu angka kedua
+
+  // === FUNGSI UTAMA PENGENDALI TOMBOL ===
 
   void _onButtonPressed(String buttonText) {
     setState(() {
-      if (buttonText == "AC") {
-        _output = "0";
+      // 1. Tombol Angka (0-9 dan .)
+      if ("0123456789.".contains(buttonText)) {
+        _handleNumberInput(buttonText);
+      }
+      // 2. Tombol Operator Unary (langsung dieksekusi)
+      else if (buttonText == "√" || buttonText == "x²") {
+        _handleUnaryOperator(buttonText);
+      }
+      // 3. Tombol Clear (AC dan C)
+      else if (buttonText == "AC") {
+        _handleAc();
       } else if (buttonText == "C") {
-        // Logika hapus (contoh sederhana)
-        if (_output.length > 1) {
-          _output = _output.substring(0, _output.length - 1);
-        } else {
-          _output = "0";
-        }
-      } else if (buttonText == "=") {
-        // Logika perhitungan (bisa ditambahkan nanti)
-        // Untuk saat ini, biarkan saja
-      } else {
-        if (_output == "0") {
-          _output = buttonText;
-        } else {
-          _output += buttonText;
-        }
+        _handleBackspace();
+      }
+      // 4. Tombol Operator Binary (butuh 2 angka)
+      else if ("+ - × ÷".contains(buttonText)) {
+        _handleBinaryOperator(buttonText);
+      }
+      // 5. Tombol Equals (=)
+      else if (buttonText == "=") {
+        _handleEquals();
       }
     });
   }
 
+  // === FUNGSI-FUNGSI PEMBANTU (LOGIKA) ===
+
+  // Menangani input angka
+  void _handleNumberInput(String numStr) {
+    if (_isWaitingForNum2) {
+      _output = numStr;
+      _isWaitingForNum2 = false;
+    } else {
+      // Mencegah duplikasi titik desimal
+      if (numStr == "." && _output.contains(".")) return;
+      _output = (_output == "0") ? numStr : _output + numStr;
+    }
+  }
+
+  // Menangani operator instan (Akar dan Kuadrat)
+  void _handleUnaryOperator(String op) {
+    double currentNum = double.parse(_output);
+    double result = 0;
+
+    if (op == "√") {
+      if (currentNum < 0) {
+        // Error handling untuk akar negatif
+        _output = "Error";
+        return;
+      }
+      result = math.sqrt(currentNum);
+    } else if (op == "x²") {
+      result = currentNum * currentNum;
+    }
+    _output = _formatOutput(result);
+    _isWaitingForNum2 = false;
+  }
+
+  // Menangani operator +, -, ×, ÷
+  void _handleBinaryOperator(String op) {
+    // Jika ada operasi sebelumnya, hitung dulu
+    if (_operator.isNotEmpty && !_isWaitingForNum2) {
+      _handleEquals();
+    }
+    _num1 = double.parse(_output);
+    _operator = op;
+    _isWaitingForNum2 = true;
+  }
+
+  // Menangani tombol = (Equals)
+  void _handleEquals() {
+    if (_operator.isEmpty || _isWaitingForNum2) return;
+
+    double num2 = double.parse(_output);
+    double result = 0;
+
+    switch (_operator) {
+      case "+":
+        result = _num1 + num2;
+        break;
+      case "-":
+        result = _num1 - num2;
+        break;
+      case "×":
+        result = _num1 * num2;
+        break;
+      case "÷":
+        if (num2 == 0) {
+          // Error handling untuk bagi dengan nol
+          _output = "Error";
+          _operator = "";
+          return;
+        }
+        result = _num1 / num2;
+        break;
+    }
+
+    _output = _formatOutput(result);
+    _operator = "";
+    _num1 = 0;
+    _isWaitingForNum2 = false;
+  }
+
+  // Menangani tombol All Clear (AC)
+  void _handleAc() {
+    _output = "0";
+    _num1 = 0;
+    _operator = "";
+    _isWaitingForNum2 = false;
+  }
+
+  // Menangani tombol Backspace (C)
+  void _handleBackspace() {
+    if (_isWaitingForNum2) return; // Jangan hapus jika sedang menunggu num2
+    if (_output.length > 1) {
+      _output = _output.substring(0, _output.length - 1);
+    } else {
+      _output = "0";
+    }
+  }
+
+  // Helper untuk format output (menghilangkan .0 jika tidak perlu)
+  String _formatOutput(double num) {
+    if (num % 1 == 0) {
+      return num.toInt().toString(); // Jadi "7"
+    } else {
+      return num.toString(); // Jadi "7.5"
+    }
+  }
+
+  // === FUNGSI BUILD TAMPILAN (UI) ===
+
   @override
   Widget build(BuildContext context) {
-    // Scaffold DAN AppBar dihapus.
-    // Langsung return widget kontennya (Column).
+    // Tetap HANYA return Column (tanpa Scaffold/AppBar)
     return Column(
       children: [
         // Bagian Tampilan Display
@@ -51,7 +169,9 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
             child: Text(
               _output,
               style: TextStyle(
-                fontSize: 64,
+                fontSize: _output.length > 10
+                    ? 48
+                    : 64, // Kecilkan font jika panjang
                 fontWeight: FontWeight.w300,
                 color: Colors.black,
               ),
@@ -79,19 +199,19 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
               children: [
-                // Daftar tombol
+                // Daftar tombol (sudah diubah)
                 _buildButton(
-                  "AC",
+                  "AC", // All Clear
                   color: Colors.grey.shade400,
                   textColor: Colors.black,
                 ),
                 _buildButton(
-                  "C",
+                  "C", // Backspace
                   color: Colors.grey.shade400,
                   textColor: Colors.black,
                 ),
                 _buildButton(
-                  "%",
+                  "√", // TOMBOL BARU: Akar Kuadrat
                   color: Colors.grey.shade400,
                   textColor: Colors.black,
                 ),
@@ -114,8 +234,14 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
 
                 _buildButton("."), // Tombol titik
                 _buildButton("0"),
-                _buildButton("00"), // Tombol 00
-                _buildButton("=", color: Color(0xFFB4A9E7)), // Ungu
+                _buildButton(
+                  "x²", // TOMBOL BARU: Kuadrat
+                  color: Color(0xFFB4A9E7),
+                ),
+                _buildButton(
+                  "=",
+                  color: Color(0xFFB4A9E7), // Ungu
+                ),
               ],
             ),
           ),
@@ -124,7 +250,7 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
     );
   }
 
-  // Widget helper untuk membuat tombol
+  // Widget helper untuk membuat tombol (tidak berubah)
   Widget _buildButton(
     String text, {
     Color color = Colors.white,
