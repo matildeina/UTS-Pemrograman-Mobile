@@ -30,12 +30,12 @@ Aplikasi ini terdiri dari beberapa halaman utama yang dihubungkan menggunakan Bo
 🖼️ Galeri Screenshot Aplikasi
 | Halaman                  |                             Tampilan                            | Deskripsi                        |
 | :----------------------- | :-------------------------------------------------------------: | :------------------------------- |
-| **Splash Screen**        |  <img src="assets/screenshots/[splash_screen.jpg]" width="250"> | Tampilan pembuka aplikasi.       |
-| **Profil Biodata**       | <img src="assets/screenshots/[profil_biodata.jpg]" width="250"> | Formulir biodata mahasiswa.      |
-| **Kalkulator**           |   <img src="assets/screenshots/[kalkulator.jpg]" width="250">   | Kalkulator bertema pastel.       |
-| **Info Cuaca**           |   <img src="assets/screenshots/[info_cuaca.jpg]" width="250">   | Info cuaca hari ini di Surabaya. |
-| **Kontak Teman**         |  <img src="assets/screenshots/[kontak_teman.jpg]" width="250">  | Daftar kontak teman.             |
-| **Navigasi (Dashboard)** |    <img src="assets/screenshots/[dashboard.jpg]" width="250">   | Navigasi utama aplikasi.         |
+| **Splash Screen**        |  <img src="assets/screenshots/[splash_screen.png" width="250"> | Tampilan pembuka aplikasi.       |
+| **Profil Biodata**       | <img src="assets/screenshots/[profil_biodata.png]" width="250"> | Formulir biodata mahasiswa.      |
+| **Kalkulator**           |   <img src="assets/screenshots/[kalkulator.png]" width="250">   | Kalkulator bertema pastel.       |
+| **Info Cuaca**           |   <img src="assets/screenshots/[info_cuaca.png]" width="250">   | Info cuaca hari ini di Surabaya. |
+| **Kontak Teman**         |  <img src="assets/screenshots/[kontak_teman.png]" width="250">  | Daftar kontak teman.             |
+| **Navigasi (Dashboard)** |    <img src="assets/screenshots/[dashboard.png]" width="250">   | Navigasi utama aplikasi.         |
 
 🛠️ Teknologi yang Digunakan
 Framework: Flutter (v3.35.5)
