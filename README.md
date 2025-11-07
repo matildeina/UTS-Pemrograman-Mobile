@@ -35,7 +35,7 @@ Aplikasi ini terdiri dari beberapa halaman utama yang dihubungkan menggunakan Bo
 | **Kalkulator**           |   <img src="assets/screenshots/[kalkulator.png]" width="250">   | Kalkulator bertema pastel.       |
 | **Info Cuaca**           |   <img src="assets/screenshots/[info_cuaca.png]" width="250">   | Info cuaca hari ini di Surabaya. |
 | **Kontak Teman**         |  <img src="assets/screenshots/[kontak_teman.png]" width="250">  | Daftar kontak teman.             |
-| **Navigasi (Dashboard)** |    <img src="assets/screenshots/[dashboard.png]" width="250">   | Navigasi utama aplikasi.         |
+| **Navigasi (Dashboard)** |    <img src="assets/screenshots/[berita.png]" width="250">   | Navigasi utama aplikasi.         |
 
 🛠️ Teknologi yang Digunakan
 Framework: Flutter (v3.35.5)
