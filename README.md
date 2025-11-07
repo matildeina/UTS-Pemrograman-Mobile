@@ -49,11 +49,13 @@ Struktur Navigasi: BottomNavigationBar dengan StatefulWidget
 Kontrol Versi: Git & GitHub
 
 💡 Catatan Tambahan
+
 Aplikasi ini dikembangkan sepenuhnya untuk keperluan akademik dalam rangka memenuhi penilaian Ujian Tengah Semester (UTS) pada mata kuliah Pemrograman Mobile.
 Semua tampilan, warna, dan desain disesuaikan dengan tema pastel yang lembut untuk menciptakan p
 engalaman pengguna yang menyenangkan.
 
 📍 Pembuat
+
 👩‍💻 Matilde Ina Ola Dosinaeng
 📚 NRP: 152023014
 📖 Mata Kuliah: Pemrograman Mobile
