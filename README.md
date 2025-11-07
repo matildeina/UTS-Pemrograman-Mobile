@@ -57,7 +57,11 @@ engalaman pengguna yang menyenangkan.
 📍 Pembuat
 
 👩‍💻 Matilde Ina Ola Dosinaeng
+
 📚 NRP: 152023014
+
 📖 Mata Kuliah: Pemrograman Mobile
+
 💜 Tema: Daily Pastel
+
 🔗 GitHub: github.com/matildeina
