@@ -5,10 +5,10 @@ Project UTS Pemrograman Mobile
 | Keterangan         | Data                            |
 | :----------------- | :------------------------------ |
 | **Nama**           | Matilde Ina Ola Dosinaeng       |
-| **NRP**            | 152023014                       |
+| **NRP**            | 15-2023-014                       |
 | **Mata Kuliah**    | Pemrograman Mobile              |
-| **Dosen Pengampu** | *(Isi sesuai nama dosen Anda)*  |
-| **Institusi**      | *(Isi sesuai nama kampus Anda)* |
+| **Dosen Pengampu** | Galih Ashari Rakhmat  |
+| **Institusi**      | ITENAS BANDUNG |
 
 
 📱 Deskripsi Proyek
