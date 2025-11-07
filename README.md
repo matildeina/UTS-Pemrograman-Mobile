@@ -28,14 +28,15 @@ Aplikasi ini terdiri dari beberapa halaman utama yang dihubungkan menggunakan Bo
 | **Berita Terkini** | Halaman placeholder sederhana untuk fitur berita yang akan dikembangkan di masa depan.                           |
 
 🖼️ Galeri Screenshot Aplikasi
-| Halaman                  |                             Tampilan                            | Deskripsi                        |
-| :----------------------- | :-------------------------------------------------------------: | :------------------------------- |
-| **Splash Screen**        |  <img src="assets/screenshots/[splash_screen.png" width="250"> | Tampilan pembuka aplikasi.       |
-| **Profil Biodata**       | <img src="assets/screenshots/[profil_biodata.png]" width="250"> | Formulir biodata mahasiswa.      |
-| **Kalkulator**           |   <img src="assets/screenshots/[kalkulator.png]" width="250">   | Kalkulator bertema pastel.       |
-| **Info Cuaca**           |   <img src="assets/screenshots/[info_cuaca.png]" width="250">   | Info cuaca hari ini di Surabaya. |
-| **Kontak Teman**         |  <img src="assets/screenshots/[kontak_teman.png]" width="250">  | Daftar kontak teman.             |
-| **Navigasi (Dashboard)** |    <img src="assets/screenshots/[berita.png]" width="250">   | Navigasi utama aplikasi.         |
+| Halaman | Tampilan (Screenshot) | Deskripsi Singkat |
+| :--- | :---: | :--- |
+| **Splash Screen** | <img src="assets/screenshots/splash_screen.png" width="250"> | Layar pembuka "Daily Pastel" yang muncul saat aplikasi pertama kali dijalankan. |
+| **Profil Biodata** | <img src="assets/screenshots/profil_biodata.png" width="250"> | Formulir untuk mengisi data diri mahasiswa. |
+| **Kalkulator** | <img src="assets/screenshots/kalkulator.png" width="250"> | Tampilan kalkulator bertema pastel yang berfungsi penuh. |
+| **Info Cuaca** | <img src="assets/screenshots/info_cuaca.png" width="250"> | Halaman cuaca dengan data statis untuk kota Surabaya. |
+| **Kontak Teman** | <img src="assets/screenshots/kontak_teman.png" width="250"> | Daftar kontak teman dengan foto dan nomor telepon. |
+| **Berita Terkini** | <img src="assets/screenshots/berita.png" width="250"> | Halaman placeholder untuk berita terkini. |
+
 
 🛠️ Teknologi yang Digunakan
 Framework: Flutter (v3.35.5)
