@@ -7,7 +7,7 @@ import '/screens/kontak_page.dart';
 import '/screens/berita_page.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({super.key});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();

@@ -58,10 +58,23 @@ class _BiodataPageState extends State<BiodataPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(height: 20),
-            CircleAvatar(
-              radius: 60,
-              backgroundColor: Colors.grey.shade200,
-              backgroundImage: AssetImage('assets/profile.jpg'),
+            Container(
+              width: 120, // 2x radius (60 * 2)
+              height: 120, // 2x radius (60 * 2)
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200, // Warna background yang sama
+                shape: BoxShape.circle, // Bikin jadi lingkaran
+                image: DecorationImage(
+                  image: AssetImage('assets/profile.jpg'),
+
+                  // Gunakan 'BoxFit.cover' (sama seperti default CircleAvatar)
+                  fit: BoxFit.cover,
+
+                  // --- INI BAGIAN PENTINGNYA ---
+                  // Ambil gambar dari bagian tengah-atas, bukan tengah-tengah
+                  alignment: Alignment.topCenter,
+                ),
+              ),
             ),
             SizedBox(height: 32),
             _buildTextField(
